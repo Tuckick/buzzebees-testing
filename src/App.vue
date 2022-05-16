@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <HeaderBar></HeaderBar>
-    <router-view></router-view>
-    <FooterBar></FooterBar>
+    <HeaderBar id="header"></HeaderBar>
+    <div id="body">
+
+      <router-view></router-view>
+    </div>
+    <FooterBar id="footer"></FooterBar>
   </div>
 </template>
 
@@ -26,5 +29,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#body {
+  padding: 20px;
+}
+
+#footer{
+ position:fixed;
+ bottom:0;
+ width: 100%;
 }
 </style>
