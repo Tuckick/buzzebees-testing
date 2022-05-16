@@ -6,7 +6,7 @@
       class="icon"
       @click="isShowMenu()"
     />
-    <div class="menu-side-bar-container">
+    <div v-if="this.isShow" class="menu-side-bar-container">
       <ul class="menu-list">
         <img
           src="../../assets/images/icons/close.png"
@@ -14,8 +14,12 @@
           class="icon close-icon"
           @click="isCloseMenu()"
         />
-        <router-link to="/profile" class="menu-list-box"> Profile </router-link>
-        <router-link to="/gallery" class="menu-list-box"> Gallery </router-link>
+        <div @click="goToProfile()" class="menu-list-box">
+          Profile
+        </div>
+        <div @click="goToGallery()" class="menu-list-box">
+          Gallery
+        </div>
       </ul>
     </div>
   </div>
@@ -24,12 +28,26 @@
 <script>
 export default {
   name: "HamburgerMenu",
+  data() {
+    return {
+      isShow: false,
+    };
+  },
   methods: {
     isShowMenu() {
-      console.log("hello");
+      return (this.isShow = true);
     },
     isCloseMenu() {
       console.log("bye");
+      return (this.isShow = false);
+    },
+    goToProfile(){
+      this.isCloseMenu()
+      this.$router.push('/profile')
+    },
+    goToGallery(){
+      this.isCloseMenu()
+      this.$router.push('/gallery')
     },
   },
 };
@@ -46,7 +64,7 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%;
+    width: 70%;
     height: 100vh;
     background-color: #f9ac17;
     box-shadow: 0px 0 4px 2px #585858;
