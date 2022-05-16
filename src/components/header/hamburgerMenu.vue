@@ -15,9 +15,19 @@
           @click="isCloseMenu()"
         />
         <div @click="goToProfile()" class="menu-list-box">
+          <img
+            src="../../assets/images/icons/profile.png"
+            alt="profile icon"
+            class="menu-list-box-icon"
+          />
           Profile
         </div>
         <div @click="goToGallery()" class="menu-list-box">
+          <img
+            src="../../assets/images/icons/gallery.png"
+            alt="gallery icon"
+            class="menu-list-box-icon"
+          />
           Gallery
         </div>
       </ul>
@@ -41,13 +51,13 @@ export default {
       console.log("bye");
       return (this.isShow = false);
     },
-    goToProfile(){
-      this.isCloseMenu()
-      this.$router.push('/profile')
+    goToProfile() {
+      this.isCloseMenu();
+      this.$router.push("/profile");
     },
-    goToGallery(){
-      this.isCloseMenu()
-      this.$router.push('/gallery')
+    goToGallery() {
+      this.isCloseMenu();
+      this.$router.push("/gallery");
     },
   },
 };
@@ -61,6 +71,7 @@ export default {
   }
 
   .menu-side-bar-container {
+    z-index: 1000;
     position: absolute;
     top: 0;
     right: 0;
@@ -82,6 +93,12 @@ export default {
         color: #3f3f3f;
         font-weight: bold;
         text-decoration: none;
+
+        &-icon {
+          max-height: 24px;
+          width: fit-content;
+          padding-right: 8px;
+        }
       }
 
       .close-icon {
