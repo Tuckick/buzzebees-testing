@@ -6,27 +6,26 @@
       @click="goToHomePage()"
       class="logo"
     />
-    <!-- <NavBar></NavBar> -->
-    <HamburgerMenu></HamburgerMenu>
+    <NavBar class="nav-bar-display"></NavBar>
+    <HamburgerMenu class="hamburger-display"></HamburgerMenu>
   </div>
 </template>
 
 <script>
-// import NavBar from "../components/header/navBar.vue";
+import NavBar from "../components/header/navBar.vue";
 import HamburgerMenu from "../components/header/hamburgerMenu.vue";
 
 export default {
   name: "HeaderBar",
   components: {
-    // NavBar,
+    NavBar,
     HamburgerMenu,
   },
   methods: {
-    goToHomePage(){
-      this.$router.push({ name: 'HomePage' })
-    }
-    
-  }
+    goToHomePage() {
+      this.$router.push({ name: "HomePage" });
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -37,8 +36,25 @@ export default {
   background-color: white;
   box-shadow: -3px -1px 4px 2px #585858;
   padding: 16px;
+
   .logo {
     max-height: 100px;
+  }
+
+  .hamburger-display {
+    display: none;
+  }
+  .nav-bar-display {
+    display: block;
+  }
+
+  @media (max-width: 767px) {
+    .hamburger-display {
+      display: block;
+    }
+    .nav-bar-display {
+      display: none;
+    }
   }
 }
 </style>
