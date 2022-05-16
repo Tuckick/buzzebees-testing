@@ -28,16 +28,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #3f3f3f;
 }
 
 #body {
   padding: 20px;
 }
 
-#footer{
+/* #footer{
  position:fixed;
  bottom:0;
  width: 100%;
-}
+} */
 </style>
