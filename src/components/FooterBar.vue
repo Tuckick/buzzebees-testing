@@ -1,6 +1,6 @@
 <template>
   <div class="footer-container">
-    <div v-for="item in contactList" :key="item.index" class="footer-detail">
+    <div v-for="(item, i) in contactList" :key="i" class="footer-detail">
       <img
         :src="require('../assets/images/icons/' + item.icon + '.png')"
         :alt="item.name"

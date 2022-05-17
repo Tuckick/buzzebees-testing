@@ -4,6 +4,7 @@
       src="../../assets/images/icons/previous.png"
       alt="previous button"
       class="button-image"
+      @click="clickPrevious()"
     />
     <img
       :src="require('../../assets/images/fruits/' + selectedImage + '.jpg')"
@@ -14,6 +15,7 @@
       src="../../assets/images/icons/next.png"
       alt="next button"
       class="button-image"
+      @click="clickNext()"
     />
   </div>
 </template>
@@ -24,13 +26,38 @@ export default {
   props: {
     isSelected: {
       type: Boolean,
-      default: false,
       require: true,
+      default: false,
     },
     selectedImage: {
       type: String,
-      default: "fruit-01",
       require: false,
+      default: "fruit-01",
+    },
+    indexOfSelectedImage: {
+      type: Number,
+      require: false,
+      default: 0,
+    },
+    listData: {
+      type: Array,
+      require: true,
+      default: () => [],
+    },
+  },
+  mounted() {
+    console.log(this.listData);
+  },
+  methods: {
+    clickPrevious() {
+      console.log("click Previous");
+      console.log(this.indexOfSelectedImage);
+      console.log(this.selectedImage);
+    },
+    clickNext() {
+      console.log("click next");
+      console.log(this.indexOfSelectedImage);
+      console.log(this.selectedImage);
     },
   },
 };

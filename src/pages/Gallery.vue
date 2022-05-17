@@ -3,16 +3,18 @@
     <h1>Gallery Page</h1>
     <div class="gallery-container">
       <img
-        v-for="item in listFruit"
-        :key="item.index"
+        v-for="(item, index) in listFruit"
+        :key="index"
         :src="require('../assets/images/fruits/' + item + '.jpg')"
         :alt="item.name"
         class="fruit-image"
-        @click="clickImage(item)"
+        @click="clickImage(item, index)"
       />
     </div>
     <ModalView
       :isSelected="this.isSelected"
+      :indexOfSelectedImage="indexOfSelectedImage"
+      :listData="listFruit"
       :selectedImage="selectedImage"
     ></ModalView>
   </div>
@@ -43,13 +45,15 @@ export default {
         "fruit-12",
       ],
       isSelected: false,
-      selectedImage: "",
+      selectedImage: "default-image",
+      indexOfSelectedImage: null,
     };
   },
   methods: {
-    clickImage(i) {
+    clickImage(name, index) {
       this.isSelected = true;
-      this.selectedImage = i;
+      this.selectedImage = name;
+      this.indexOfSelectedImage = index;
     },
   },
 };
