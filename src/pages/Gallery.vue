@@ -1,6 +1,8 @@
 <template>
   <div id="GalleryPage">
-    <h1>Gallery Page</h1>
+    <div class="page-title">
+      <h1>Gallery Page</h1>
+    </div>
     <div class="gallery-container">
       <img
         v-for="(item, index) in listFruit"
@@ -64,6 +66,16 @@ export default {
   align-items: center;
   text-align: -webkit-center;
 
+  .page-title {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(233, 233, 237, 1) 19%,
+      rgba(233, 239, 241, 1) 49%,
+      rgba(233, 233, 237, 1) 81%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
   .gallery-container {
     width: 100%;
     height: 100%;
