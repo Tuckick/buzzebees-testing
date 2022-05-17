@@ -34,10 +34,4 @@ export default {
 #body {
   padding: 20px;
 }
-
-/* #footer{
- position:fixed;
- bottom:0;
- width: 100%;
-} */
 </style>
