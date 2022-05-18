@@ -96,6 +96,15 @@ export default {
   .modal-image {
     height: 450px;
     width: 600px;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      height: 400px;
+      width: 500px;
+    }
+    @media (max-width: 767px) {
+      height: 250px;
+      width: 280px;
+    }
   }
 
   .button-image {
