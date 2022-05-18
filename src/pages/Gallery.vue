@@ -80,7 +80,7 @@ export default {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 300px);
+    grid-template-columns: repeat(4, 200px);
     grid-template-rows: repeat(3, 200px);
     grid-gap: 16px;
     justify-content: center;
@@ -93,11 +93,12 @@ export default {
     }
 
     @media (min-width: 768px) and (max-width: 1023px) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(6, 1fr);
+      grid-template-columns: repeat(2, 200px);
+      grid-template-rows: repeat(6, 200px);
     }
     @media (max-width: 767px) {
       grid-template-columns: 1fr;
+      grid-template-rows: repeat(12, 200px);
     }
   }
 }
