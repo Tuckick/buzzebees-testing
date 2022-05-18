@@ -1,6 +1,13 @@
 <template>
   <div class="home-container">
     <div class="home-container-detail">
+      <div class="logo-container">
+        <img
+          src="../assets/images/logo/godzicode-logo.png"
+          alt="godzicode logo"
+          class="logo"
+        />
+      </div>
       <div class="text-container">
         <p class="first-line">Thank you</p>
         <p class="second-line">
@@ -28,6 +35,7 @@ export default {
   );
 
   &-detail {
+    position: relative;
 
     .text-container {
       color: black;
@@ -43,6 +51,9 @@ export default {
         @media (max-width: 767px) {
           font-size: 28px;
         }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          font-size: 48px;
+        }
       }
       .second-line {
         font-size: 48px;
@@ -51,6 +62,9 @@ export default {
 
         @media (max-width: 767px) {
           font-size: 20px;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          font-size: 40px;
         }
       }
       .big-word {
@@ -61,7 +75,16 @@ export default {
           font-size: 32px;
           padding-left: 24px;
         }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          font-size: 64px;
+        }
       }
+    }
+  }
+
+  .logo-container {
+    .logo {
+      max-width: 40%;
     }
   }
 }
