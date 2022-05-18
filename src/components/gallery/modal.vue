@@ -1,5 +1,15 @@
 <template>
-  <div v-show="isSelected" class="modal-container">
+  <div
+    v-show="isSelected"
+    class="modal-container"
+    :class="[isCloseModal ? 'close-modal' : 'modal-container']"
+  >
+    <img
+      src="../../assets/images/icons/close.png"
+      alt="close modal"
+      class="close-btn"
+      @click="closeModal()"
+    />
     <img
       src="../../assets/images/icons/previous.png"
       alt="previous button"
@@ -73,6 +83,10 @@ export default {
         this.index = 12;
       }
     },
+
+    closeModal() {
+      this.$emit("visible", false);
+    },
   },
 };
 </script>
@@ -111,6 +125,13 @@ export default {
     padding: 4px;
     width: 24px;
     height: 24px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: -44px;
+    right: 0;
+    height: 32px;
   }
 }
 </style>

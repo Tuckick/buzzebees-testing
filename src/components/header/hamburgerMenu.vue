@@ -48,7 +48,6 @@ export default {
       return (this.isShow = true);
     },
     isCloseMenu() {
-      console.log("bye");
       return (this.isShow = false);
     },
     goToProfile() {

@@ -17,13 +17,13 @@
       :isSelected="this.isSelected"
       :indexOfSelectedImage="indexOfSelectedImage"
       :listData="listFruit"
+      @visible="closeModal()"
     />
   </div>
 </template>
 
 <script>
 import ModalView from "../components/gallery/modal.vue";
-
 
 export default {
   name: "GalleryPage",
@@ -54,6 +54,9 @@ export default {
     clickImage(index) {
       this.isSelected = true;
       this.indexOfSelectedImage = index;
+    },
+    closeModal(v) {
+      this.isSelected = v;
     },
   },
 };
