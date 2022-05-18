@@ -7,7 +7,11 @@
       @click="clickPrevious()"
     />
     <img
-      :src="require('../../assets/images/fruits/' + currentImage() + '.jpg')"
+      :src="
+        require('../../assets/images/fruits/' +
+          this.listData[this.activeImage] +
+          '.jpg')
+      "
       alt="show your selected fruit"
       class="modal-image"
     />
@@ -25,7 +29,8 @@ export default {
   name: "ModalView",
   data() {
     return {
-      currentIndex: 0,
+      index: 0,
+      activeImage: this.indexOfSelectedImage,
     };
   },
   props: {
@@ -33,11 +38,6 @@ export default {
       type: Boolean,
       require: true,
       default: false,
-    },
-    selectedImage: {
-      type: String,
-      require: false,
-      default: "fruit-01",
     },
     indexOfSelectedImage: {
       type: Number,
@@ -50,17 +50,28 @@ export default {
       default: () => [],
     },
   },
-  methods: {
-    currentImage() {
-      return this.listData.find((item) => item == this.selectedImage);
-    },
 
+  methods: {
     clickPrevious() {
-      console.log("click Previous");
+      this.index -= 1;
+      const previousImage = this.indexOfSelectedImage + this.index;
+      if (previousImage >= 0) {
+        this.activeImage = previousImage;
+      } else {
+        this.activeImage = 0;
+        this.index = 0;
+      }
     },
 
     clickNext() {
-      console.log("click next");
+      this.index += 1;
+      const nextImage = this.indexOfSelectedImage + this.index;
+      if (nextImage < this.listData.length) {
+        this.activeImage = nextImage;
+      } else {
+        this.activeImage = 11;
+        this.index = 12;
+      }
     },
   },
 };

@@ -10,20 +10,20 @@
         :src="require('../assets/images/fruits/' + item + '.jpg')"
         :alt="item.name"
         class="fruit-image"
-        @click="clickImage(item, index)"
+        @click="clickImage(index)"
       />
     </div>
     <ModalView
       :isSelected="this.isSelected"
       :indexOfSelectedImage="indexOfSelectedImage"
       :listData="listFruit"
-      :selectedImage="selectedImage"
-    ></ModalView>
+    />
   </div>
 </template>
 
 <script>
 import ModalView from "../components/gallery/modal.vue";
+
 
 export default {
   name: "GalleryPage",
@@ -47,14 +47,12 @@ export default {
         "fruit-12",
       ],
       isSelected: false,
-      selectedImage: "default-image",
-      indexOfSelectedImage: null,
+      indexOfSelectedImage: 0,
     };
   },
   methods: {
-    clickImage(name, index) {
+    clickImage(index) {
       this.isSelected = true;
-      this.selectedImage = name;
       this.indexOfSelectedImage = index;
     },
   },
