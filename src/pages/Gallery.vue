@@ -85,12 +85,14 @@ export default {
     grid-template-rows: repeat(3, 200px);
     grid-gap: 16px;
     justify-content: center;
+    justify-items: center;
     margin-bottom: 40px;
 
     .fruit-image {
-      width: inherit;
-      height: inherit;
-      border: 1px solid #f9ac17;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #f9ac17;
+      object-fit: cover;
     }
 
     @media (min-width: 768px) and (max-width: 1023px) {
