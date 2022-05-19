@@ -5,7 +5,7 @@
     </div>
     <div class="profile-container">
       <div class="personal-information-container">
-        <p style="border-bottom: 1px solid #f9ac17;">
+        <p style="border-bottom: 1px solid #f9ac17">
           Nuttaya Pensrisirikul <span class="star-word">[ Tuck ]</span> <br />I
           was born on 10 Sep 1995
           <span class="star-word">[ 26 years old ]</span>
@@ -123,9 +123,9 @@ export default {
       }
 
       @media (max-width: 767px) {
-         width: 100%;
-         padding: 2px;
-         font-size: 16px;
+        width: 100%;
+        padding-left: 2px;
+        font-size: 16px;
       }
     }
 
@@ -137,10 +137,15 @@ export default {
       .image {
         max-height: 400px;
         width: inherit;
+
+        @media (max-width: 767px) {
+          max-height: none;
+        }
       }
 
       @media (max-width: 767px) {
         position: unset;
+        width: 100%;
       }
     }
 
