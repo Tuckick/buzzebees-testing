@@ -14,7 +14,7 @@
       />
     </div>
     <ModalView
-      :isSelected="this.isSelected"
+      :isSelected="isSelected"
       :indexOfSelectedImage="indexOfSelectedImage"
       :listData="listFruit"
       @visible="closeModal()"

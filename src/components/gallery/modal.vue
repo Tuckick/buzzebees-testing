@@ -8,9 +8,7 @@
     />
     <img
       :src="
-        require('../../assets/images/fruits/' +
-          this.listData[this.activeImage] +
-          '.jpg')
+        require('../../assets/images/fruits/' + this.listData[showImg] + '.jpg')
       "
       alt="show your selected fruit"
       class="modal-image"
@@ -27,12 +25,6 @@
 <script>
 export default {
   name: "ModalView",
-  data() {
-    return {
-      index: 0,
-      activeImage: this.indexOfSelectedImage,
-    };
-  },
   props: {
     isSelected: {
       type: Boolean,
@@ -50,32 +42,37 @@ export default {
       default: () => [],
     },
   },
-
+  data() {
+    return {
+      index: 0,
+    };
+  },
+  computed: {
+    showImg() {
+      const activeImage = this.indexOfSelectedImage;
+      return activeImage + this.index;
+    },
+  },
   methods: {
     clickPrevious() {
       this.index -= 1;
       const previousImage = this.indexOfSelectedImage + this.index;
-      if (previousImage >= 0) {
-        this.activeImage = previousImage;
-      } else {
-        this.activeImage = 0;
-        this.index = 0;
+      if (previousImage <= 0) {
+        this.index++;
       }
     },
 
     clickNext() {
       this.index += 1;
       const nextImage = this.indexOfSelectedImage + this.index;
-      if (nextImage < this.listData.length) {
-        this.activeImage = nextImage;
-      } else {
-        this.activeImage = 11;
-        this.index = 12;
+      if (nextImage >= this.listData.length) {
+        this.index--;
       }
     },
 
     closeModal() {
       this.$emit("visible", false);
+      this.index = 0;
     },
   },
 };
