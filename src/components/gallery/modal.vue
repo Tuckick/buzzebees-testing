@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-show="isSelected"
-    class="modal-container"
-    @click.self = "closeModal()"
-  >
+  <div v-show="isSelected" class="modal-container" @click.self="closeModal()">
     <img
       src="../../assets/images/icons/previous.png"
       alt="previous button"
