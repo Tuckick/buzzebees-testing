@@ -2,14 +2,8 @@
   <div
     v-show="isSelected"
     class="modal-container"
-    :class="[isCloseModal ? 'close-modal' : 'modal-container']"
+    @click.self = "closeModal()"
   >
-    <img
-      src="../../assets/images/icons/close.png"
-      alt="close modal"
-      class="close-btn"
-      @click="closeModal()"
-    />
     <img
       src="../../assets/images/icons/previous.png"
       alt="previous button"
@@ -93,38 +87,64 @@ export default {
 
 <style lang="scss" scoped>
 .modal-container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  width: fit-content;
-  height: fit-content;
-  padding: 0;
-  background-color: #f3f3f3;
-  box-shadow: 0 0 4px 0 #585858;
+  place-items: center;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
 
   .modal-image {
-    height: 450px;
-    width: 600px;
-
-    @media (min-width: 768px) and (max-width: 1023px) {
-      height: 400px;
-      width: 500px;
-    }
-    @media (max-width: 767px) {
-      height: 250px;
-      width: 280px;
-    }
+    margin: auto;
+    display: block;
+    width: 77%;
+    max-width: 700px;
   }
 
   .button-image {
     padding: 4px;
-    width: 24px;
-    height: 24px;
+    width: 72px;
+    height: 72px;
+
+    @media (max-width: 767px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .button-image:hover {
+    opacity: 0.7;
+  }
+
+  .modal-image,
+  .button-image {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+  @-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+    }
+  }
+
+  @keyframes zoom {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
   }
 
   .close-btn {

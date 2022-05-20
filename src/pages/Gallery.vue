@@ -95,6 +95,10 @@ export default {
       object-fit: cover;
     }
 
+    .fruit-image:hover {
+      opacity: 0.7;
+    }
+
     @media (min-width: 768px) and (max-width: 1023px) {
       grid-template-columns: repeat(2, 200px);
       grid-template-rows: repeat(6, 200px);
